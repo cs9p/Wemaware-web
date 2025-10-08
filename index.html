@@ -18,9 +18,11 @@
         /* Slide Container */
         .slide-container {
             max-width: 1000px;
-            height: 90vh; /* Mimics a slide aspect ratio */
+            /* Use a height slightly less than 100vh to ensure it fits on the screen */
+            min-height: 90vh; 
             margin: 30px auto;
             padding: 40px;
+            padding-bottom: 0; /* Important: Remove bottom padding here, moved to footer */
             background-color: #ffffff;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
@@ -40,8 +42,6 @@
 
         .logo {
             margin-right: 20px;
-            /* Ensures the logo takes its space for vertical centering to work */
-            align-self: flex-start; /* Optional: ensures logo aligns to the top if the tagline is very tall */
         }
 
         .logo img {
@@ -51,7 +51,6 @@
         
         .header-text {
             flex-grow: 1;
-            /* This div contains the tagline, which will be centered vertically within the header */
         }
 
         /* Tagline - Font size increased by 1.5x (from original 1.2em to 1.8em). Line height reduced. */
@@ -67,7 +66,7 @@
         .content-sections {
             display: flex;
             gap: 40px;
-            flex-grow: 1;
+            flex-grow: 1; /* Allows content to take up remaining space */
         }
 
         .column {
@@ -130,15 +129,19 @@
             font-size: 1.2em;
         }
 
-        /* Footer - Increased Size and Padding */
+        /* Footer - FIXED: Background color applied outside the padding area was causing the float effect. */
         footer {
             text-align: center;
+            /* Added background color here to cover the entire element */
+            background-color: #f8f8f8; 
             padding: 30px; 
-            margin-top: auto;
+            margin-top: auto; /* Pushes the footer to the bottom */
             border-top: 1px solid #ccc;
             font-size: 1.1em; 
             color: #777;
-            background-color: #f8f8f8; 
+            /* Ensure the footer's background does not overlap content */
+            width: 100%;
+            box-sizing: border-box; 
         }
 
         .email-link {
@@ -186,7 +189,7 @@
                 </ul>
             </div>
         </div>
-
+        
         <footer>
             <p>For more information please send an email to <a href="mailto:info@ksinitiative.com" class="email-link">info@ksinitiative.com</a></p>
         </footer>
