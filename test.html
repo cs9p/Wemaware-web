@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WemaWare - Intelligent Small Business Lending</title>
+    <style>
+        /* CSS for a clean, modern website look, building on the slide-like theme */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f5; /* Very light, professional background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Slide Container - Adjusted for website feel */
+        .slide-container {
+            max-width: 1200px; /* Increased max-width for a wider feel */
+            min-height: 90vh; 
+            margin: 40px auto; /* Increased margin */
+            padding: 50px; /* Increased padding */
+            padding-bottom: 0;
+            background-color: #ffffff;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Stronger shadow for depth */
+            border-radius: 12px; /* Slightly more rounded corners */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header / Title Section */
+        header {
+            display: flex; 
+            flex-direction: column; /* Stack logo and text vertically on mobile */
+            align-items: center; 
+            text-align: center; /* Center-align header content */
+            padding-bottom: 30px;
+            border-bottom: 5px solid #4a69bd; /* Dark Blue Primary Color */
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            margin-right: 0; /* Removed horizontal margin */
+            margin-bottom: 15px;
+        }
+
+        .logo img {
+            width: 200px; /* Slightly smaller logo */
+            height: auto;
+        }
+        
+        /* New: Main product title (WemaWare) */
+        h1.main-title {
+            font-size: 3.5em; /* Large, clear title */
+            color: #1c2a44; /* Darker color */
+            margin: 0 0 10px 0;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        /* Tagline - Refined for impact */
+        .subtitle {
+            color: #4a69bd;
+            font-size: 1.6em; 
+            margin: 0; 
+            font-weight: 500;
+            line-height: 1.3;
+            max-width: 800px; /* Constrain tagline width */
+        }
+
+        /* Content Layout */
+        .content-sections {
+            display: flex;
+            gap: 50px; /* Increased gap */
+            flex-grow: 1; 
+        }
+
+        .column {
+            flex: 1;
+            padding-right: 0; /* Removed unnecessary padding */
+        }
+
+        /* Section Headings */
+        h2 {
+            color: #4a69bd;
+            font-size: 1.8em; /* Larger headings */
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+            font-weight: 600;
+        }
+
+        /* Text Blocks (The Problem) */
+        .problem-block {
+            background-color: #fff4f2; /* Lighter red tint background */
+            padding: 20px;
+            border-left: 6px solid #ff6347; /* Prominent red accent for "Problem" */
+            border-radius: 6px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Solution Text */
+        .solution-text {
+            font-size: 1.2em; /* Slightly larger text */
+            margin-bottom: 30px;
+            color: #1c2a44;
+            font-weight: 500;
+        }
+
+        /* Superscript styling */
+        .trademark {
+            font-size: 0.6em;
+            vertical-align: top;
+            margin-left: 2px;
+        }
+
+        /* Bullet Points (Benefits) */
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            position: relative;
+            padding-left: 30px; /* More space for the icon */
+            margin-bottom: 18px; /* More vertical separation */
+            font-size: 1.05em;
+            line-height: 1.4;
+        }
+
+        .benefits-list li::before {
+            /* Changed to a checkmark for a cleaner, benefit-oriented look */
+            content: '✓'; 
+            color: #28a745; /* Green checkmark */
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            font-size: 1.4em; /* Larger checkmark */
+            top: -2px;
+        }
+
+        /* Footer / Call to Action */
+        footer {
+            text-align: center;
+            background-color: #e6eaf3; /* Light blue-gray background for prominence */
+            padding: 40px; /* More padding */
+            margin-top: auto; 
+            border-top: 3px solid #4a69bd; /* Stronger border */
+            font-size: 1.2em; 
+            color: #555;
+            border-radius: 0 0 12px 12px; /* Match container border-radius */
+            box-sizing: border-box; 
+        }
+
+        .email-link {
+            color: #4a69bd;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.5em; /* Larger CTA email */
+            transition: color 0.3s;
+        }
+
+        .email-link:hover {
+            color: #3b5998; /* Darken on hover */
+        }
+        
+        /* --- Responsive Design (Makes it look like a modern, responsive website) --- */
+        @media (max-width: 900px) {
+            .slide-container {
+                margin: 20px;
+                padding: 20px;
+                box-shadow: none; /* Less shadow on mobile */
+            }
+
+            .content-sections {
+                flex-direction: column; /* Stack columns vertically */
+                gap: 30px;
+            }
+
+            header {
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+            }
+            
+            h1.main-title {
+                font-size: 2.5em;
+            }
+
+            .subtitle {
+                font-size: 1.3em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+            
+            footer {
+                padding: 30px 20px;
+                font-size: 1em;
+            }
+            
+            .email-link {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <header>
+            <div class="logo">
+                <img src="wemaware-logo.png" alt="WemaWare Logo"> 
+            </div>
+            
+            <h1 class="main-title">WemaWare</h1>
+            <p class="subtitle">Built to Empower Intelligent Small Business Lending in Growth Markets</p>
+        </header>
+        
+        <div class="content-sections">
+            <div class="column">
+                <h2>The Challenge</h2>
+                <div class="problem-block">
+                    <p>In growth markets, **small businesses** should be the engine of growth, for jobs and local wealth. Yet, scant capital is available to fuel their growth because of perceived risks, complexity in underwriting, and insufficient collaterals.</p>
+                    <p>Local banks are conservative and slow to approve. SACCOs, fintechs, and MFIs provide short-term loans with steep interest rates that are not suitable for use as growth capital.</p>
+                    <p>Many of these businesses never achieve their potential to grow to strengthen their local economy.</p>
+                </div>
+                
+                <h2>The Solution</h2>
+                <p class="solution-text">**WemaWare<sup class="trademark">™</sup>** is a **SaaS-based platform** designed to enable local lenders to on-lend to small businesses successfully and profitably. It is the one-stop-shop for intelligent small business lending.</p>
+            </div>
+
+            <div class="column">
+                <h2>Key Benefits of WemaWare<sup class="trademark">™</sup></h2>
+                <ul class="benefits-list">
+                    <li>**Cloud-based subscription service.** Eliminate tech complexity and maintenance headaches.</li>
+                    <li>**All-inclusive end-to-end lending platform,** from loan application through maturity.</li>
+                    <li>**Efficient and robust underwriting workflow.** Shorten elapsed time, ensure consistency in evaluation processes, and reduce exposure to risks.</li>
+                    <li>**Comprehensive set of analysis and reports** for each borrower and the full portfolio. Detect potential issues in time for corrective actions.</li>
+                    <li>**Flexible configuration of loan products** and collateral requirements. Meet small business’ diverse needs.</li>
+                    <li>**Future-proof with state-of-the-art technology.** Evolve with new capabilities such as APIs to banks, public sector bureaus, digital payment systems, and other ancillary services.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Ready to empower your small business lending?</p>
+            <p>For more information, please send an email to:</p>
+            <a href="mailto:info@ksinitiative.com" class="email-link">info@ksinitiative.com</a>
+        </footer>
+    </div>
+</body>
+</html>
