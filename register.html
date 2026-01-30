@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch the Tutorial - Wemaware</title>
+    <style>
+        :root {
+            /* Modern Fintech Color Palette */
+            --primary-color: #2563EB; /* Trustworthy Blue */
+            --primary-hover: #1D4ED8;
+            --bg-color: #F3F4F6;
+            --card-bg: #FFFFFF;
+            --text-main: #1F2937;
+            --text-muted: #6B7280;
+            --border-color: #E5E7EB;
+            --input-bg: #F9FAFB;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--text-main);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--input-bg);
+            font-size: 15px;
+            color: var(--text-main);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            background-color: #fff;
+        }
+
+        /* Submit Button Styling */
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <img src="wemaware-logo.png" alt="Wemaware Logo" class="logo">
+            <h1>Platform Walkthrough</h1>
+            <p>Complete the details below to access the full video tutorial.</p>
+        </div>
+
+        <form action="YOUR_KIT_FORM_ACTION_URL" method="POST">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first_name">First Name <span style="color:red">*</span></label>
+                    <input type="text" id="first_name" name="fields[first_name]" placeholder="Jane" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Work Email <span style="color:red">*</span></label>
+                    <input type="email" id="email" name="email_address" placeholder="jane@company.com" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="org_type">Organization Type <span style="color:red">*</span></label>
+                <select id="org_type" name="fields[organization_type]" required>
+                    <option value="" disabled selected>Select an option...</option>
+                    <option value="Lending Business (MFI/NBFI)">Lending Business (MFI/NBFI)</option>
+                    <option value="Cooperative / SACCO">Cooperative / SACCO</option>
+                    <option value="Foundation / NGO">Foundation / NGO</option>
+                    <option value="Impact Investor / VC">Impact Investor / VC</option>
+                    <option value="Consultant / Advisor">Consultant / Advisor</option>
+                    <option value="Student / Researcher">Student / Researcher</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="company_name">Organization / Company Name</label>
+                    <input type="text" id="company_name" name="fields[company_name]" placeholder="e.g. Acme Microfinance">
+                </div>
+                <div class="form-group">
+                    <label for="job_title">Job Title</label>
+                    <input type="text" id="job_title" name="fields[job_title]" placeholder="e.g. Loan Officer">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country of Operation</label>
+                <select id="country" name="fields[country]">
+                    <option value="" disabled selected>Select primary country...</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="South Africa">South Africa</option>
+                    <option value="Ghana">Ghana</option>
+                    <option value="Uganda">Uganda</option>
+                    <option value="Tanzania">Tanzania</option>
+                    <option value="Rwanda">Rwanda</option>
+                    <option value="Zambia">Zambia</option>
+                    <option value="--">--</option>
+                    <option value="Other Africa">Other Africa</option>
+                    <option value="Other Global">Other Global</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="whatsapp">WhatsApp Number</label>
+                <input type="tel" id="whatsapp" name="fields[whatsapp]" placeholder="+254 7XX XXX XXX">
+                <small style="color: var(--text-muted); font-size: 12px;">Include country code (e.g., +234, +254)</small>
+            </div>
+
+            <button type="submit" class="btn-submit">Register & Watch Video</button>
+            
+            <p style="text-align: center; margin-top: 15px; font-size: 12px; color: var(--text-muted);">
+                We respect your privacy. No spam.
+            </p>
+
+        </form>
+    </div>
+
+</body>
+</html>

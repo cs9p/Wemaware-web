@@ -24,7 +24,6 @@
             background-color: var(--bg-color);
         }
 
-        /* Sidebar Styling */
         .sidebar {
             width: 300px;
             background-color: var(--sidebar-bg);
@@ -89,7 +88,6 @@
             display: block;
         }
 
-        /* Main Content Styling */
         .main-content {
             flex: 1;
             display: flex;
@@ -164,7 +162,7 @@
         </div>
 
         <div class="video-container">
-            <video id="mainVideo" controls controlsList="nodownload" preload="auto">
+            <video id="mainVideo" controls controlsList="nodownload" preload="metadata" playsinline>
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -185,7 +183,6 @@
         const videoPlayer = document.getElementById('mainVideo');
         const titleElement = document.getElementById('videoTitle');
 
-        // Force load the initial overview on page load
         window.addEventListener('DOMContentLoaded', () => {
             const initial = videoData['overview'];
             videoPlayer.src = initial.url;
@@ -195,20 +192,17 @@
         function loadVideo(key, btnElement) {
             const data = videoData[key];
             
-            // UI Updates
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
             titleElement.textContent = data.title;
             
-            // Switch Video and Play
             videoPlayer.src = data.url;
             videoPlayer.load();
             
-            // Autoplay works here because it is a user-initiated click
             const playPromise = videoPlayer.play();
             if (playPromise !== undefined) {
                 playPromise.catch(error => {
-                    console.log("Autoplay blocked. This can happen if the browser requires a more explicit user interaction.");
+                    console.log("Autoplay blocked or stream interrupted.");
                 });
             }
         }
