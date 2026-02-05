@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Tutorial</title>
+    <style>
+        :root {
+            --sidebar-bg: #f8f9fc;
+            --sidebar-text: #4a5568;
+            --active-bg: #e2e8f0;
+            --active-text: #2d3748;
+            --accent-color: #3182ce;
+            --bg-color: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .sidebar {
+            width: 300px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            display: block;
+            max-width: 100%;
+            height: 100px; 
+            margin-bottom: 1.5rem;
+            object-fit: contain;
+            align-self: flex-start;
+        }
+
+        .sidebar-header {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 2rem;
+            letter-spacing: -0.025em;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 0.25rem;
+            border: none;
+            background: none;
+            text-align: left;
+            font-size: 0.95rem;
+            color: var(--sidebar-text);
+            cursor: pointer;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover { background-color: #edf2f7; color: var(--active-text); }
+
+        .nav-btn.active {
+            background-color: white;
+            color: var(--accent-color);
+            font-weight: 600;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        .sub-item { padding-left: 2rem; font-size: 0.9rem; }
+
+        .category-header {
+            font-weight: 700;
+            color: #2d3748;
+            font-size: 1rem;
+            padding: 0.75rem;
+            margin-top: 1rem;
+            display: block;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 3rem;
+            overflow-y: auto;
+            align-items: center;
+        }
+
+        .video-header {
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .video-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-desc { color: #718096; font-size: 1rem; }
+
+        .video-container {
+            width: 100%;
+            max-width: 1000px;
+            background: #000;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            aspect-ratio: 16 / 9;
+        }
+
+        video { width: 100%; height: 100%; display: block; outline: none; }
+
+        @media (max-width: 768px) {
+            body { flex-direction: column; height: auto; }
+            .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid #e2e8f0; }
+            .main-content { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <img src="../../../wemaware-logo.png" alt="Wemaware Logo" class="logo">
+        <div class="sidebar-header">Video Tutorial</div>
+
+        <div class="category-header">WemaWare Overview</div>
+        <button id="overview-btn" class="nav-btn sub-item active" onclick="loadVideo('overview', this)">
+            Overview Video (start here)
+        </button>
+
+        <div class="category-header">Borrower's View</div>
+        <button class="nav-btn sub-item" onclick="loadVideo('bor_dashboard', this)"> Dashboard & Sidebar </button>
+        <button class="nav-btn sub-item" onclick="loadVideo('bor_prequal', this)"> Pre-qualification </button>
+        <button class="nav-btn sub-item" onclick="loadVideo('bor_app', this)"> Loan Application Form </button>
+        <button class="nav-btn sub-item" onclick="loadVideo('bor_mgmt', this)"> Management Support Form </button>
+
+        <div class="category-header">Staff View</div>
+        <button class="nav-btn sub-item" onclick="loadVideo('staff_dashboard', this)"> Dashboard & Sidebar </button>
+        <button class="nav-btn sub-item" onclick="loadVideo('staff_flow', this)"> Loan Application Flow </button>
+        <button class="nav-btn sub-item" onclick="loadVideo('staff_process', this)"> Management Support Process </button>
+    </aside>
+
+    <main class="main-content">
+        <div class="video-header">
+            <h1 class="video-title" id="videoTitle">WemaWare Overview</h1>
+            <p class="video-desc" id="videoDesc">Select a video from the sidebar to begin watching.</p>
+        </div>
+
+        <div class="video-container">
+            <video id="mainVideo" controls controlsList="nodownload" preload="auto" >
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </main>
+
+    <script>
+        const videoData = {
+            'overview': { title: "WemaWare Overview", url: "https://www2.wemaware.com/cdn/media/b-dashboard.mp4" },
+            'bor_dashboard': { title: "Borrower: Dashboard & Sidebar", url: "https://www2.wemaware.com/overview.mp4" },
+            'bor_prequal': { title: "Borrower: Pre-qualification", url: "https://www2.wemaware.com/cdn/media/b-prequal.mp4" },
+            'bor_app': { title: "Borrower: Loan Application Form", url: "https://www2.wemaware.com/cdn/media/b-loan.mp4" },
+            'bor_mgmt': { title: "Borrower: Management Support Form", url: "https://www2.wemaware.com/cdn/media/b-support.mp4" },
+            'staff_dashboard': { title: "Staff: Dashboard & Sidebar", url: "https://www2.wemaware.com/cdn/media/s-dashboard.mp4" },
+            'staff_flow': { title: "Staff: Loan Application Flow", url: "https://www2.wemaware.com/cdn/media/s-loan.mp4" },
+            'staff_process': { title: "Staff: Management Support Process", url: "https://www2.wemaware.com/cdn/media/s-support.mp4" }
+        };
+
+        const videoPlayer = document.getElementById('mainVideo');
+        const titleElement = document.getElementById('videoTitle');
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const initial = videoData['overview'];
+            videoPlayer.src = initial.url;
+            videoPlayer.load();
+        });
+
+        function loadVideo(key, btnElement) {
+            const data = videoData[key];
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+            titleElement.textContent = data.title;
+            
+            videoPlayer.src = data.url;
+            videoPlayer.load();
+            
+            const playPromise = videoPlayer.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Autoplay blocked or stream interrupted.");
+                });
+            }
+        }
+    </script>
+</body>
+</html>
